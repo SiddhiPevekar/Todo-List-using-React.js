@@ -2,8 +2,8 @@ import React, { useState , useEffect} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
-    const [taskName, setTaskName] = useState('');
-    const [description, setDescription] = useState('');
+    const [taskName, setTaskName] = useState(taskObj.Name);
+    const [description, setDescription] = useState(taskObj.Description);
 
     const handleChange = (e) => {
         
@@ -14,14 +14,12 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
         }else{
             setDescription(value)
         }
-
-
     }
 
-    useEffect(() => {
-        setTaskName(taskObj.Name)
-        setDescription(taskObj.Description)
-    },[])
+    // useEffect(() => {
+    //     setTaskName(taskObj.Name)
+    //     setDescription(taskObj.Description)
+    // },[])
 
     const handleUpdate = (e) => {
         e.preventDefault();
